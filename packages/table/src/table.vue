@@ -102,6 +102,21 @@
             width: bodyWidth
           }"></table-header>
       </div>
+       <div
+        v-if="showSummary"
+        v-show="data && data.length > 0"
+        class="el-table__fixed-footer-wrapper"
+        ref="fixedFooterWrapper">
+        <table-footer
+          fixed="left"
+          :border="border"
+          :sum-text="sumText || t('el.table.sumText')"
+          :summary-method="summaryMethod"
+          :store="store"
+          :style="{
+            width: bodyWidth
+          }"></table-footer>
+      </div>
       <div
         class="el-table__fixed-body-wrapper"
         ref="fixedBodyWrapper"
@@ -126,21 +141,6 @@
           :style="{
             height: layout.appendHeight + 'px'
           }"></div>
-      </div>
-      <div
-        v-if="showSummary"
-        v-show="data && data.length > 0"
-        class="el-table__fixed-footer-wrapper"
-        ref="fixedFooterWrapper">
-        <table-footer
-          fixed="left"
-          :border="border"
-          :sum-text="sumText || t('el.table.sumText')"
-          :summary-method="summaryMethod"
-          :store="store"
-          :style="{
-            width: bodyWidth
-          }"></table-footer>
       </div>
     </div>
     <div
